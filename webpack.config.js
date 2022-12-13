@@ -38,7 +38,7 @@ module.exports = {
   plugins: [
     //  使用模板地址
     new HtmlWebpackPlugin({ 
-      template: './index.html' 
+      template: './public/index.html' 
     }),
     new TerserWebpackPlugin({
       test: /\.js(\?.*)?$/i, // 匹配参与压缩的文件
@@ -55,7 +55,7 @@ module.exports = {
     new FileManagerPlugin({
       events: {
         onEnd: {
-          move: [{ 
+          copy: [{ 
             source: path.join(__dirname, './public/favicon.ico'),
             destination: path.join(__dirname, './dist/favicon.ico')
           }]
