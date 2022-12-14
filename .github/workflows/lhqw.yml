@@ -1,0 +1,55 @@
+name: 部署到Pages
+
+on:
+  push:
+    branches: ["main"]
+    
+  workflow_dispatch:  
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    # 环境参数
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    # 容器系统环境
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 通用的代码拉取
+        uses: actions/checkout@v3
+      
+      - name: 安装nodejs 18.x版本
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          
+      - name: 安装依赖
+        run: npm install
+        
+      - name: 打包发布
+        run: npm run build
+        
+      - name: 配置Pages参数
+        uses: actions/configure-pages@v2
+      
+      - name: 上传到Pages服务
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: './dist' # 指定的上传目录
+      
+      - name: 部署到Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+      
+      
