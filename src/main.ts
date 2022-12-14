@@ -35,12 +35,12 @@ decodeBtn.addEventListener('click', (e:Event) => {
 });
 
 // 点击全选
-encodeEle.addEventListener('click',  (e:Event) => {
+encodeEle.addEventListener('dblclick',  (e:Event) => {
   encodeEle.select();
 });
 
 // 点击全选
-decodeEle.addEventListener('click',  (e:Event) => {
+decodeEle.addEventListener('dblclick',  (e:Event) => {
   decodeEle.select();
 });
 
