@@ -56,8 +56,8 @@ module.exports = {
       events: {
         onEnd: {
           copy: [{ 
-            source: path.join(__dirname, './public/favicon.ico'),
-            destination: path.join(__dirname, './dist/favicon.ico')
+            source: path.join(__dirname, './public/favicon.png'),
+            destination: path.join(__dirname, './dist/favicon.png')
           }]
         }
       }
