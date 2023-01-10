@@ -44,3 +44,5 @@ decodeEle.addEventListener('dblclick',  (e:Event) => {
   decodeEle.select();
 });
 
+console.log("当前版本:", new Core().VERSION);
+
