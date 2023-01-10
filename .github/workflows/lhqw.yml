@@ -35,10 +35,10 @@ jobs:
           node-version: 18.x
           
       - name: 安装依赖
-        run: npm install -f
+        run: yarn install -f
         
       - name: 打包发布
-        run: npm run build
+        run: yarn run build
         
       - name: 配置Pages参数
         uses: actions/configure-pages@v2
