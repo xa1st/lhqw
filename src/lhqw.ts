@@ -25,14 +25,13 @@ class Core {
     this.keyInd = Math.floor(Math.random() * 11) + this.keyInd;
     // 用于装载转换后的utf8串
     let strUtf8:string = "";
-    // 如果这些值在ascii范围，则直接转换
-    for(let i = 0; i < str.length; i ++) {
-      if (str[i] == encodeURIComponent(str[i])) {
-        // 说明他是ascii字符
-        strUtf8 += str[i].codePointAt(0)?.toString(16) || '';
+    for(let s of str) {
+      // 如果这些值在ascii范围，则直接转换
+      if (s.charCodeAt(0) < 128) {
+        strUtf8 += s.codePointAt(0)?.toString(16) || '';
       } else {
         // 否则则为UTF8
-        strUtf8 += encodeURIComponent(str[i]).replace(/%/g, "").toUpperCase()
+        strUtf8 += encodeURIComponent(s).replace(/%/g, "").toUpperCase()
       }
     }
     // 装编码后数字的数组
