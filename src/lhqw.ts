@@ -2,7 +2,7 @@
 class Core {
 
   // 当前版本
-  readonly VERSION:string = "2.0.2";
+  readonly VERSION:string = "2.0.3";
 
   // 密钥默认分割符
   readonly Spt:string = "引"; 
@@ -25,7 +25,7 @@ class Core {
     str = this._trim(str);
     if (str.length < 1) return '';
     // 这里生成默认的密钥索引，因为一共是0-13，但是因为是16转14，最小值应该至少是2
-    this.keyInd = Math.floor(Math.random() * 11) + this.keyInd;
+    this.keyInd = Math.floor(Math.random() * 11) + 2;
     // 用于装载转换后的utf8串
     let strUtf8:string = "";
     for(let s of str) {
