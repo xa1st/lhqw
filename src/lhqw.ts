@@ -88,7 +88,6 @@ class Core {
     // 在这里直接开始把值转换好
     for (let i = 0; i < hex.length; i++) {
       ret += (odd ? '%' : '') + (Number.parseInt(hex[i]) + this.keyInd).toString(16).toUpperCase();
-      console.log(ret);
       odd = !odd;
     }
     // 返回结果
